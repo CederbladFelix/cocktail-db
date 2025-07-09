@@ -1,8 +1,8 @@
-![poster](./src/assets/poster.png)
+![poster](./assets/poster.png)
 
 # The Cocktail DB
 
-<details>
+<details open>
   <summary>Table of Content</summary>
 
 - [Instructions](#instructions)
@@ -11,10 +11,13 @@
   - [Search Page](#search-page)
   - [Cocktail Info Page](#cocktail-info-page)
 - [Bonus Features](#bonus-features---choose-your-challenges)
+
   - [Search Page++](#search-page-1)
   - [Favorites Page](#favorites-page)
   - [Ingredient Page](#ingredient-page)
   - [General features](#general-features)
+
+- [Provided Helper](#provided-helper)
 
 </details>
 
@@ -27,7 +30,7 @@ The web application will have atleast three different pages.
 ## Requirements
 
 - Create the application using Vite and React Typescript.
-- It is allowed to use CSS-frameworks in this assignment. But i rather you didn't. The focus should be and the React part and the logic but don't forget about the CSS.
+- It is allowed to use CSS-frameworks in this assignment. But I rather you didn't. The focus should be and the React part and the logic but don't forget about the CSS.
 
 [Back to top](#the-cocktail-db)
 
@@ -68,10 +71,10 @@ The web application will have atleast three different pages.
   - Tags
   - Ingredients and Measurements
   - The proper glass to serve it in
- 
+
 On this page it could be a good opportunity to learn about dynamic segments in React Router: [Dynamic segments](https://reactrouter.com/en/main/route/route#dynamic-segments) **Observe**: this is not required in order to solve the exercise.
 
-  [Back to top](#the-cocktail-db)
+[Back to top](#the-cocktail-db)
 
 ## Bonus features - choose your challenges..
 
@@ -119,5 +122,23 @@ On this page it could be a good opportunity to learn about dynamic segments in R
 - Add error handling for API request and display user-friendly error messages.
 - Implement loading states and placeholders for data fetching.
 - The user should be able to only display non alcoholic drinks.
+
+[Back to top](#the-cocktail-db)
+
+## Provided Helper
+
+You’ve been given a helper function:
+
+```ts
+mapRawCocktailData(rawCocktail): ICocktail
+```
+
+It cleans up the messy API response and returns a simpler cocktail object.
+Use it to avoid dealing with null fields and confusing keys.
+
+You’ll find it in:
+`src/mapRawCocktailData.ts`
+
+But put it somewhere in your folder structure where it makes sense.
 
 [Back to top](#the-cocktail-db)
