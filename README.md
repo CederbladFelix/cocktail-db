@@ -1,4 +1,4 @@
-![poster](./assets/poster.png)
+![poster](./src/assets/poster.png)
 
 # The Cocktail DB
 
