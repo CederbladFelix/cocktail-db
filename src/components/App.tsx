@@ -2,7 +2,7 @@ import { Outlet } from "react-router";
 
 export const App = () => {
   return (
-    <div>
+    <div className="app-container">
       <Outlet />
     </div>
   );

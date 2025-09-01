@@ -1,16 +1,20 @@
-import { ICocktail } from "./types";
+import type { ICocktail } from "./types";
 import { mapRawCocktailData } from "./mapRawCocktailData";
 
 const BASE_URL = "https://www.thecocktaildb.com/api/json/v1/1";
 
-export const fetchAllCocktails = async (): Promise<ICocktail[]> => {
-  const response = await fetch(`${BASE_URL}/search.php?s=`);
+export const fetchRandomCocktail = async (): Promise<ICocktail> => {
+  const response = await fetch(`${BASE_URL}/random.php`);
 
   if (!response.ok) {
-    throw new Error(`Failed to fetch cocktails: ${response.status}`);
+    throw new Error(`Failed to fetch random cocktail: ${response.status}`);
   }
 
   const data = await response.json();
 
-  return (data.drinks ?? []).map(mapRawCocktailData);
+  if (!Array.isArray(data.drinks)) {
+    throw new Error("Unexpected API response");
+  }
+
+  return mapRawCocktailData(data.drinks[0]);
 };
