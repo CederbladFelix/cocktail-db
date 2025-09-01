@@ -7,30 +7,15 @@
  * you won’t need.
  */
 
-interface IIngredient {
-  ingredient: string;
-  measure: string | null;
-}
-
-interface ICocktail {
-  id: string;
-  name: string;
-  tags: string[];
-  category: string;
-  alcoholic: boolean;
-  glass: string;
-  instructions: string;
-  thumbnail: string;
-  ingredients: IIngredient[];
-}
+import { IIngredient, ICocktail } from "./types";
 
 export function mapRawCocktailData(rawCocktail: any): ICocktail {
   return {
     id: rawCocktail.idDrink,
     name: rawCocktail.strDrink,
-    tags: rawCocktail.strTags ? rawCocktail.strTags.split(',') : [],
+    tags: rawCocktail.strTags ? rawCocktail.strTags.split(",") : [],
     category: rawCocktail.strCategory,
-    alcoholic: rawCocktail.strAlcoholic === 'Alcoholic',
+    alcoholic: rawCocktail.strAlcoholic === "Alcoholic",
     glass: rawCocktail.strGlass,
     instructions: rawCocktail.strInstructions,
     thumbnail: rawCocktail.strDrinkThumb,
