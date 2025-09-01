@@ -27,6 +27,8 @@ Your are building a cocktail-wiki that uses data from [The Cocktail DB API](http
 
 The web application will have atleast three different pages.
 
+If you don't want to create an application that showcase alcoholic drinks you can instead create an application around the [Meal DB API](https://www.themealdb.com/api.php). It is a 'sister' API, which means it has the same creator and is structure the same way. The requirements below are the same in other words.
+
 ## Requirements
 
 - Create the application using Vite and React Typescript.
