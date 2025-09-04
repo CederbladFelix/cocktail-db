@@ -22,7 +22,7 @@ export const LandingPage = () => {
     loadRandomCocktail();
   }, []);
 
-  if (loading) return <p>Loading a random cocktail...</p>;
+  if (loading) return;
   if (!cocktail) return <p>No cocktail found</p>;
 
   return (

@@ -22,10 +22,10 @@ export const CocktailInfoPage = (): ReactElement => {
   const { name, category, thumbnail, tags, ingredients, glass } = cocktail;
   return (
     <div id="cocktail-info-container">
-      <h2>{name}</h2>
       <span className="img-container">
         <img src={thumbnail} alt="cocktail image" />
       </span>
+      <h2>{name}</h2>
       <h3>{category}</h3>
       <div className="tags-container">
         {tags.map((tag) => (
