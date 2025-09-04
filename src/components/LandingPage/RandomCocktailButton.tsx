@@ -8,8 +8,10 @@ export const RandomCocktailButton = ({
   onClick,
 }: RandomCocktailButtonProps): ReactElement => {
   return (
-    <button id="random-cocktail-button" onClick={onClick}>
-      Get new Cocktail
-    </button>
+    <div className="random-cocktail-button-container">
+      <button id="random-cocktail-button" onClick={onClick}>
+        Get new Cocktail
+      </button>
+    </div>
   );
 };

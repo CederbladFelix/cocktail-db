@@ -1,1 +1,4 @@
 @import url(App.css);
+@import url(./LandingPage/LandingPage.css);
+@import url(./LandingPage/Card.css);
+@import url(./LandingPage/RandomCocktailButton.css);

@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.app-container {
+  height: 100vh;
+  background-color: rgba(29, 0, 13, 255);
+  color: white;
+}
+
+h2 {
+  font-family: Arial, sans-serif;
+  font-size: 64px;
+  font-weight: bold;
+  background: linear-gradient(to bottom, #e56024, #df8b1b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}

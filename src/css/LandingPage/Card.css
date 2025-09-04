@@ -1,0 +1,15 @@
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+.img-container {
+    width: 30rem;
+}
+
+.img-container > img {
+    width: 100%;
+    border-radius: 0.5rem;
+}

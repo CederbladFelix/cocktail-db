@@ -28,9 +28,9 @@ export const LandingPage = () => {
 
   return (
     <div className="landing-page-container">
-      <RandomCocktailButton onClick={loadRandomCocktail} />
       <Card name={cocktail.name} imageUrl={cocktail.thumbnail} />
-      <Link to={`/cocktail/${cocktail.id}`}>See more</Link>
+      <RandomCocktailButton onClick={loadRandomCocktail} />
+      <Link to={`/cocktail/${cocktail.id}`} className="see-more-link">See more</Link>
     </div>
   );
 };
