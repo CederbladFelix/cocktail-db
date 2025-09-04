@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { fetchRandomCocktail } from "../../api";
 import type { ICocktail } from "../../types";
-import { Card } from "../components/LandingPage/Card";
+import { Card } from "../components/Card";
 import { RandomCocktailButton } from "../components/LandingPage/RandomCocktailButton";
-import { Link } from "react-router";
 
 export const LandingPage = () => {
   const [cocktail, setCocktail] = useState<ICocktail | null>(null);
@@ -28,9 +27,12 @@ export const LandingPage = () => {
 
   return (
     <div className="landing-page-container">
-      <Card name={cocktail.name} imageUrl={cocktail.thumbnail} />
+      <Card
+        name={cocktail.name}
+        imageUrl={cocktail.thumbnail}
+        id={cocktail.id}
+      />
       <RandomCocktailButton onClick={loadRandomCocktail} />
-      <Link to={`/cocktail/${cocktail.id}`} className="see-more-link">See more</Link>
     </div>
   );
 };

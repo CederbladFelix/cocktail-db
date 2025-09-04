@@ -1,18 +1,23 @@
 #cocktail-info-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.tags-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .ingredient-container {
-    display: flex;
-    flex-direction: column;
-    width: 15rem;
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
 }
 
 .ingredient {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
