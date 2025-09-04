@@ -19,11 +19,14 @@ export const CocktailInfoPage = (): ReactElement => {
   if (loading) return <p>Loading cocktail...</p>;
   if (!cocktail) return <p>No cocktail found</p>;
 
-  const { category, thumbnail, tags, ingredients, glass } = cocktail;
+  const { name, category, thumbnail, tags, ingredients, glass } = cocktail;
   return (
     <div id="cocktail-info-container">
-      <p>{category}</p>
-      <img src={thumbnail} alt="cocktail image" />
+      <h2>{name}</h2>
+      <span className="img-container">
+        <img src={thumbnail} alt="cocktail image" />
+      </span>
+      <h3>{category}</h3>
       <div className="tags-container">
         {tags.map((tag) => (
           <span key={tag} className="tag">
@@ -33,13 +36,13 @@ export const CocktailInfoPage = (): ReactElement => {
       </div>
       <div className="ingredient-container">
         {ingredients.map((ingredient) => (
-          <span key={ingredient.ingredient} className="ingredient">
-            {ingredient.ingredient}
-            {ingredient.measure}
-          </span>
+          <div key={ingredient.ingredient} className="ingredient">
+            <p>{ingredient.ingredient}</p>
+            <p>{ingredient.measure}</p>
+          </div>
         ))}
       </div>
-      <p>{glass}</p>
+      <p>Prefered glass: {glass}</p>
     </div>
   );
 };
