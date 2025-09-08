@@ -12,7 +12,12 @@ export const CustomButton = ({
   onClick,
 }: ICustomButtonProps): ReactElement => {
   return (
-    <button className="custom-button" disabled={disabled} onClick={onClick}>
+    <button
+      className="custom-button"
+      disabled={disabled}
+      onClick={onClick}
+      type="button"
+    >
       {children}
     </button>
   );

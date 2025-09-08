@@ -35,13 +35,13 @@ export const CocktailList = ({
 
   return (
     <ul className="search-by-name-cocktail-list">
-      {renderCocktails()}{" "}
       <Pagination
         currentPage={page + 1}
         next={handleOnNext}
         pageCount={pageCount}
         previous={handleOnPrevious}
       />
+      {renderCocktails()}{" "}
     </ul>
   );
 };
