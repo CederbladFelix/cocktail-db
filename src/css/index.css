@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
 @import url(App.css);
 @import url(./LandingPage/LandingPage.css);
 @import url(./Card.css);
@@ -7,3 +8,6 @@
 @import url(SearchPage/SearchPage.css);
 @import url(Loader.css);
 @import url(./SearchPage/Form.css);
+@import url(./Pagination/Pagination.css);
+@import url(./Pagination/CustomButton.css);
+@import url(./Pagination/CustomIcon.css);

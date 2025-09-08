@@ -1,9 +1,9 @@
 import { useState, type FormEvent, type ReactElement } from "react";
-import { Link } from "react-router";
 import { SubmitButton } from "./SubmitButton";
 import { fetchCocktailsByName } from "../../../api";
 import type { ICocktail } from "../../../types";
 import { Loader } from "../Loader";
+import { CocktailList } from "./CocktailList";
 
 export const Form = (): ReactElement => {
   const [cocktails, setCocktails] = useState<ICocktail[]>([]);
@@ -48,17 +48,7 @@ export const Form = (): ReactElement => {
 
       {loading && <Loader />}
       {error && <p>{error}</p>}
-      {cocktails.length > 0 && (
-        <ul className="search-by-name-cocktail-list">
-          {cocktails.map((cocktail) => (
-            <li key={cocktail.id}>
-              <Link to={`/cocktail/${cocktail.id}`} className="cocktail-link">
-                {cocktail.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
+      {cocktails.length > 0 && <CocktailList cocktails={cocktails} />}
     </form>
   );
 };

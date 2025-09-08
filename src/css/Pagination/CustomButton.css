@@ -1,0 +1,14 @@
+.custom-button {
+  background-color: transparent;
+  border: none;
+  color: var(--main-color);
+}
+
+.custom-button:hover {
+  cursor: pointer;
+}
+
+.custom-button:disabled {
+  color: lightgray;
+  cursor: not-allowed;
+}
