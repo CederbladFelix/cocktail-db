@@ -38,6 +38,7 @@ export const Form = (): ReactElement => {
           type="text"
           name="name-input"
           placeholder=" "
+          autoComplete="off"
         />
         <label htmlFor="name-input" className="label">
           Name
