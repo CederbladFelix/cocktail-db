@@ -40,3 +40,28 @@ export const fetchCocktailById = async (id: string): Promise<ICocktail> => {
 
   return mapRawCocktailData(data.drinks[0]);
 };
+
+export const fetchCocktailsByName = async (
+  name: string
+): Promise<ICocktail[]> => {
+  await sleep(1000);
+
+  const query = name.trim();
+  if (!query) {
+    throw new Error("Cocktail name must not be empty");
+  }
+
+  const response = await fetch(`${BASE_URL}/search.php?s=${query}`);
+
+  if (!response.ok) {
+    throw new Error(`Failed to fetch cocktail "${query}": ${response.status}`);
+  }
+
+  const data = await response.json();
+
+  if (!data.drinks || data.drinks.length === 0) {
+    throw new Error(`No cocktail found with name "${query}"`);
+  }
+
+  return data.drinks.map(mapRawCocktailData);
+};

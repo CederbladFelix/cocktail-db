@@ -4,7 +4,9 @@ import { Link } from "react-router";
 export const Header = (): ReactElement => {
   return (
     <header className="header">
-      <h1>CocktailDB</h1>
+      <Link to={`/`} className="h1">
+        CocktailDB
+      </Link>
       <nav>
         <Link to={`/`} className="header-link">
           Random Cocktail

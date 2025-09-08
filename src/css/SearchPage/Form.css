@@ -1,4 +1,4 @@
-.search-page-container {
+.search-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,4 +31,22 @@
 .input-group .name-input:focus + label,
 .input-group .name-input:not(:placeholder-shown) + label {
   top: 0;
+}
+
+.search-by-name-cocktail-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+}
+
+.cocktail-list-item {
+  text-decoration: none;
+}
+
+.cocktail-link {
+  text-decoration: none;
+  color: black;
 }

@@ -6,6 +6,12 @@
   margin-bottom: 1rem;
 }
 
+.h1 {
+  font-size: 64px;
+  text-decoration: none;
+  color: black;
+}
+
 nav {
   display: flex;
   align-items: center;
