@@ -1,0 +1,35 @@
+.search-page-container,
+.search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.search-form {
+  gap: 1rem;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group .name-input {
+  width: 10rem;
+  height: 2rem;
+}
+
+.input-group label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  pointer-events: none;
+  background-color: white;
+  transition: all 0.2s ease;
+}
+
+.input-group .name-input:focus + label,
+.input-group .name-input:not(:placeholder-shown) + label {
+  top: 0;
+}

@@ -3,6 +3,7 @@ import { fetchRandomCocktail } from "../../api";
 import type { ICocktail } from "../../types";
 import { Card } from "../components/Card";
 import { RandomCocktailButton } from "../components/LandingPage/RandomCocktailButton";
+import { Loader } from "../components/Loader";
 
 export const LandingPage = () => {
   const [cocktail, setCocktail] = useState<ICocktail | null>(null);
@@ -11,8 +12,8 @@ export const LandingPage = () => {
   const loadRandomCocktail = async () => {
     setLoading(true);
     try {
-      const random = await fetchRandomCocktail();
-      setCocktail(random);
+      const randomCocktail = await fetchRandomCocktail();
+      setCocktail(randomCocktail);
     } finally {
       setLoading(false);
     }
@@ -22,17 +23,19 @@ export const LandingPage = () => {
     loadRandomCocktail();
   }, []);
 
-  if (loading) return <p>Loading cocktail...</p>;
-  if (!cocktail) return <p>No cocktail found</p>;
-
   return (
     <div className="landing-page-container">
-      <Card
-        name={cocktail.name}
-        imageUrl={cocktail.thumbnail}
-        id={cocktail.id}
-      />
-      <RandomCocktailButton onClick={loadRandomCocktail} />
+      {loading && <Loader />}
+      {!loading && cocktail && (
+        <>
+          <Card
+            name={cocktail.name}
+            imageUrl={cocktail.thumbnail}
+            id={cocktail.id}
+          />
+          <RandomCocktailButton onClick={loadRandomCocktail} />
+        </>
+      )}
     </div>
   );
 };

@@ -3,8 +3,10 @@ import { mapRawCocktailData } from "./mapRawCocktailData";
 
 const BASE_URL = "https://www.thecocktaildb.com/api/json/v1/1";
 
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
 export const fetchRandomCocktail = async (): Promise<ICocktail> => {
-  
+  await sleep(1000);
   const response = await fetch(`${BASE_URL}/random.php`);
 
   if (!response.ok) {
@@ -21,6 +23,7 @@ export const fetchRandomCocktail = async (): Promise<ICocktail> => {
 };
 
 export const fetchCocktailById = async (id: string): Promise<ICocktail> => {
+  await sleep(1000);
   const response = await fetch(`${BASE_URL}/lookup.php?i=${id}`);
 
   if (!response.ok) {
