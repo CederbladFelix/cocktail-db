@@ -4,6 +4,7 @@ import { mapRawCocktailData } from "./mapRawCocktailData";
 const BASE_URL = "https://www.thecocktaildb.com/api/json/v1/1";
 
 export const fetchRandomCocktail = async (): Promise<ICocktail> => {
+  
   const response = await fetch(`${BASE_URL}/random.php`);
 
   if (!response.ok) {

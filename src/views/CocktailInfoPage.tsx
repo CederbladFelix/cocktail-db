@@ -8,12 +8,16 @@ export const CocktailInfoPage = (): ReactElement => {
   const [cocktail, setCocktail] = useState<ICocktail | null>(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  const loadCocktailById = async () => {
     if (!id) return;
     setLoading(true);
     fetchCocktailById(id)
       .then((data) => setCocktail(data))
       .finally(() => setLoading(false));
+  };
+
+  useEffect(() => {
+    loadCocktailById();
   }, [id]);
 
   if (loading) return <p>Loading cocktail...</p>;

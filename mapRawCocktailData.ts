@@ -6,7 +6,7 @@
  * that are null, as well as a number of attributes that
  * you won’t need.
  */
-import type { IIngredient, ICocktail } from "./types";
+import type { ICocktail } from "./types";
 
 export function mapRawCocktailData(rawCocktail: any): ICocktail {
   return {
