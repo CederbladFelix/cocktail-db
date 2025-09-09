@@ -1,17 +1,21 @@
-import { useState, type ReactElement, type ReactNode } from "react";
+import { type ReactElement, type ReactNode } from "react";
 import type { ICocktail } from "../../../types";
 import { Link } from "react-router";
-import { Pagination } from "../Pagination/Pagination";
+import { Pagination } from "./Pagination/Pagination";
 
 interface CocktailListProps {
   cocktails: ICocktail[];
+  page: number;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export const CocktailList = ({
   cocktails,
+  page,
+  setPage,
 }: CocktailListProps): ReactElement => {
   const pageSize = 10;
-  const [page, setPage] = useState<number>(0);
+
   const pageCount: number = Math.ceil(cocktails.length / pageSize);
 
   const handleOnNext = () =>

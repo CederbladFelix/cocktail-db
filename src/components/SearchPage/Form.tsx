@@ -9,6 +9,7 @@ export const Form = (): ReactElement => {
   const [cocktails, setCocktails] = useState<ICocktail[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState<number>(0);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,6 +22,7 @@ export const Form = (): ReactElement => {
       setLoading(true);
       const results = await fetchCocktailsByName(name);
       setCocktails(results);
+      setPage(0);
     } catch (error) {
       setError((error as Error).message);
       setCocktails([]);
@@ -46,9 +48,9 @@ export const Form = (): ReactElement => {
       </div>
       <SubmitButton />
 
-      {loading && <Loader />}
       {error && <p>{error}</p>}
-      {cocktails.length > 0 && <CocktailList cocktails={cocktails} />}
+      {cocktails.length > 0 && <CocktailList cocktails={cocktails} page={page} setPage={setPage} />}
+      {loading && <Loader />}
     </form>
   );
 };
