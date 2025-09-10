@@ -1,39 +1,29 @@
-import { useEffect, useState } from "react";
-import { fetchRandomCocktail } from "../../api";
+import { useLoaderData, useNavigation, useRevalidator } from "react-router";
 import type { ICocktail } from "../../types";
 import { Card } from "../components/Card";
 import { RandomCocktailButton } from "../components/LandingPage/RandomCocktailButton";
 import { Loader } from "../components/Loader";
 
 export const LandingPage = () => {
-  const [cocktail, setCocktail] = useState<ICocktail | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { cocktail } = useLoaderData() as { cocktail: ICocktail };
+  const navigation = useNavigation();
+  const revalidator = useRevalidator();
 
-  const loadRandomCocktail = async () => {
-    setLoading(true);
-    try {
-      const randomCocktail = await fetchRandomCocktail();
-      setCocktail(randomCocktail);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    loadRandomCocktail();
-  }, []);
+  const isLoading =
+    navigation.state === "loading" || revalidator.state === "loading";
 
   return (
     <div className="landing-page-container">
-      {loading && <Loader />}
-      {!loading && cocktail && (
+      {isLoading ? (
+        <Loader />
+      ) : (
         <>
           <Card
             name={cocktail.name}
             imageUrl={cocktail.thumbnail}
             id={cocktail.id}
           />
-          <RandomCocktailButton onClick={loadRandomCocktail} />
+          <RandomCocktailButton />
         </>
       )}
     </div>

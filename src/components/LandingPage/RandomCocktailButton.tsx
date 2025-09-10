@@ -1,15 +1,15 @@
 import type { ReactElement } from "react";
+import { useRevalidator } from "react-router";
 
-interface RandomCocktailButtonProps {
-  onClick: () => void;
-}
+export const RandomCocktailButton = (): ReactElement => {
+  const revalidator = useRevalidator();
 
-export const RandomCocktailButton = ({
-  onClick,
-}: RandomCocktailButtonProps): ReactElement => {
   return (
     <div className="random-cocktail-button-container">
-      <button id="random-cocktail-button" onClick={onClick}>
+      <button
+        id="random-cocktail-button"
+        onClick={() => revalidator.revalidate()}
+      >
         Get new Cocktail
       </button>
     </div>
