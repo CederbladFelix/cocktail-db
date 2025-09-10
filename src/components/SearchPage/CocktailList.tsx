@@ -15,7 +15,6 @@ export const CocktailList = ({
   setPage,
 }: CocktailListProps): ReactElement => {
   const pageSize = 10;
-
   const pageCount: number = Math.ceil(cocktails.length / pageSize);
 
   const handleOnNext = () =>
@@ -27,10 +26,10 @@ export const CocktailList = ({
     const start = page * pageSize;
     const end = start + pageSize;
     return cocktails
-      .map((cocktail) => (
-        <li key={cocktail.id}>
-          <Link to={`/cocktail/${cocktail.id}`} className="cocktail-link">
-            {cocktail.name}
+      .map(({ id, name }) => (
+        <li key={id}>
+          <Link to={`/cocktail/${id}`} className="cocktail-link">
+            {name}
           </Link>
         </li>
       ))

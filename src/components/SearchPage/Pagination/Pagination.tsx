@@ -1,4 +1,4 @@
-import type { ReactElement, ReactNode } from "react";
+import type { ReactElement } from "react";
 import { CustomButton } from "./CustomButton";
 import { CustomIcon } from "./CustomIcon";
 
@@ -15,14 +15,6 @@ export const Pagination = ({
   pageCount,
   previous,
 }: IPaginationProps): ReactElement => {
-  const renderPagination = (): ReactNode => {
-    return (
-      <p>
-        {currentPage} / {pageCount}
-      </p>
-    );
-  };
-
   return (
     <section className="pagination">
       <CustomButton
@@ -32,7 +24,9 @@ export const Pagination = ({
         <CustomIcon icon="arrow_circle_left" />
       </CustomButton>
 
-      {renderPagination()}
+      <p>
+        {currentPage} / {pageCount}
+      </p>
 
       <CustomButton
         disabled={currentPage === pageCount ? true : undefined}

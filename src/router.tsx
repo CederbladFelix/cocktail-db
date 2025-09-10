@@ -6,7 +6,7 @@ import { SearchPage } from "./views/SearchPage";
 
 import {
   LoaderCocktailById,
-  LoaderCocktailByName,
+  LoaderCocktailsByName,
   LoaderRandomCocktail,
 } from "./loaders";
 
@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
       {
         path: "search",
         element: <SearchPage />,
-        loader: LoaderCocktailByName,
+        loader: LoaderCocktailsByName,
       },
     ],
   },

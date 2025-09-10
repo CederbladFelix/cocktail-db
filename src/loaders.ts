@@ -23,7 +23,9 @@ export const LoaderCocktailById = async ({
   return { cocktail };
 };
 
-export const LoaderCocktailByName = async ({ request }: LoaderFunctionArgs) => {
+export const LoaderCocktailsByName = async ({
+  request,
+}: LoaderFunctionArgs) => {
   const url = new URL(request.url);
   const name = url.searchParams.get("q");
 
