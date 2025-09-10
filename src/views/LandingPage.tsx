@@ -12,20 +12,20 @@ export const LandingPage = () => {
   const isLoading =
     navigation.state === "loading" || revalidator.state === "loading";
 
+  if (isLoading) {
+    return (
+      <div className="landing-page-container">
+        <Spinner />
+      </div>
+    );
+  }
+
+  const { name, thumbnail, id } = cocktail;
+
   return (
     <div className="landing-page-container">
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        <>
-          <Card
-            name={cocktail.name}
-            imageUrl={cocktail.thumbnail}
-            id={cocktail.id}
-          />
-          <RandomCocktailButton />
-        </>
-      )}
+      <Card name={name} imageUrl={thumbnail} id={id} />
+      <RandomCocktailButton />
     </div>
   );
 };

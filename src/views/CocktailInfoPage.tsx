@@ -5,33 +5,40 @@ import { Spinner } from "../components/Spinner";
 
 export const CocktailInfoPage = (): ReactElement => {
   const { cocktail, error } = useLoaderData() as LoaderCocktailData;
-  return error ? (
-    <p className="error-message">{error}</p>
-  ) : cocktail ? (
+
+  if (error) {
+    return <p className="error-message">{error}</p>;
+  }
+
+  if (!cocktail) {
+    return <Spinner />;
+  }
+
+  const { thumbnail, name, category, tags, ingredients, glass } = cocktail;
+
+  return (
     <div id="cocktail-info-container">
       <span className="img-container">
-        <img src={cocktail.thumbnail} alt="cocktail image" />
+        <img src={thumbnail} alt="cocktail image" />
       </span>
-      <h2>{cocktail.name}</h2>
-      <h3>{cocktail.category}</h3>
+      <h2>{name}</h2>
+      <h3>{category}</h3>
       <div className="tags-container">
-        {cocktail.tags.map((tag) => (
+        {tags.map((tag) => (
           <span key={tag} className="tag">
             {tag}
           </span>
         ))}
       </div>
       <div className="ingredient-container">
-        {cocktail.ingredients.map((ingredient) => (
-          <div key={ingredient.ingredient} className="ingredient">
-            <p>{ingredient.ingredient}</p>
-            <p>{ingredient.measure}</p>
+        {ingredients.map(({ ingredient, measure }) => (
+          <div key={ingredient} className="ingredient">
+            <p>{ingredient}</p>
+            <p>{measure}</p>
           </div>
         ))}
       </div>
-      <p>Preferred glass: {cocktail.glass}</p>
+      <p>Preferred glass: {glass}</p>
     </div>
-  ) : (
-    <Spinner />
   );
 };
