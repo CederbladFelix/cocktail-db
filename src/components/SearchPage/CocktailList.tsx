@@ -45,7 +45,7 @@ export const CocktailList = ({
         pageCount={pageCount}
         previous={handleOnPrevious}
       />
-      {renderCocktails()}{" "}
+      {renderCocktails()}
     </ul>
   );
 };
