@@ -1,13 +1,13 @@
 import type { ICocktail } from "./types";
 import { mapRawCocktailData } from "./mapRawCocktailData";
 
-const BASE_URL = "https://www.thecocktaildb.com/api/json/v1/1";
+const baseURL = "https://www.thecocktaildb.com/api/json/v1/1";
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const fetchRandomCocktail = async (): Promise<ICocktail> => {
   await sleep(1000);
-  const response = await fetch(`${BASE_URL}/random.php`);
+  const response = await fetch(`${baseURL}/random.php`);
 
   if (!response.ok) {
     throw new Error(`Failed to fetch random cocktail: ${response.status}`);
@@ -24,7 +24,7 @@ export const fetchRandomCocktail = async (): Promise<ICocktail> => {
 
 export const fetchCocktailById = async (id: string): Promise<ICocktail> => {
   await sleep(1000);
-  const response = await fetch(`${BASE_URL}/lookup.php?i=${id}`);
+  const response = await fetch(`${baseURL}/lookup.php?i=${id}`);
 
   if (!response.ok) {
     throw new Error(
@@ -51,7 +51,7 @@ export const fetchCocktailsByName = async (
     throw new Error("Cocktail name must not be empty");
   }
 
-  const response = await fetch(`${BASE_URL}/search.php?s=${query}`);
+  const response = await fetch(`${baseURL}/search.php?s=${query}`);
 
   if (!response.ok) {
     throw new Error(`Failed to fetch cocktail "${query}": ${response.status}`);

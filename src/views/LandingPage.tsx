@@ -1,11 +1,11 @@
 import { useLoaderData, useNavigation, useRevalidator } from "react-router";
-import type { ICocktail } from "../../types";
+import type { LoaderRandomCocktailData } from "../../types";
 import { Card } from "../components/Card";
 import { RandomCocktailButton } from "../components/LandingPage/RandomCocktailButton";
-import { Loader } from "../components/Loader";
+import { Spinner } from "../components/Spinner";
 
 export const LandingPage = () => {
-  const { cocktail } = useLoaderData() as { cocktail: ICocktail };
+  const { cocktail } = useLoaderData() as LoaderRandomCocktailData;
   const navigation = useNavigation();
   const revalidator = useRevalidator();
 
@@ -15,7 +15,7 @@ export const LandingPage = () => {
   return (
     <div className="landing-page-container">
       {isLoading ? (
-        <Loader />
+        <Spinner />
       ) : (
         <>
           <Card

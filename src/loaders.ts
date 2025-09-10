@@ -27,11 +27,13 @@ export const LoaderCocktailByName = async ({ request }: LoaderFunctionArgs) => {
   const url = new URL(request.url);
   const name = url.searchParams.get("q");
 
-  if (!name) return { cocktails: [] };
+  if (!name) {
+    return { cocktails: [], error: null };
+  }
 
   try {
     const cocktails = await fetchCocktailsByName(name);
-    return { cocktails };
+    return { cocktails, error: null };
   } catch (error) {
     return { cocktails: [], error: (error as Error).message };
   }

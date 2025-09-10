@@ -6,7 +6,7 @@
 @import url(Header.css);
 @import url(./CocktailInfoPage/CocktailInfoPage.css);
 @import url(SearchPage/SearchPage.css);
-@import url(Loader.css);
+@import url(Spinner.css);
 @import url(./SearchPage/Form.css);
 @import url(./Pagination/Pagination.css);
 @import url(./Pagination/CustomButton.css);

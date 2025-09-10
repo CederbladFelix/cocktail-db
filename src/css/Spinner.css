@@ -1,10 +1,10 @@
-.loader {
+.spinner {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.loader::after {
+.spinner::after {
   content: "";
   width: 5rem;
   height: 5rem;

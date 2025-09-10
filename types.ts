@@ -14,3 +14,17 @@ export interface ICocktail {
   thumbnail: string;
   ingredients: IIngredient[];
 }
+
+export interface LoaderCocktailsData {
+  cocktails: ICocktail[];
+  error: string | null;
+}
+
+export interface LoaderCocktailData {
+  cocktail: ICocktail | null;
+  error: string | null;
+}
+  
+export interface LoaderRandomCocktailData {
+  cocktail: ICocktail;
+}
